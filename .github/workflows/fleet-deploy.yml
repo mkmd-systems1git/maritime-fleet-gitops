@@ -1,0 +1,41 @@
+name: Maritime Over-The-Air Fleet Deployment
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'src/**'
+      - 'Dockerfile'
+
+jobs:
+  build-and-ship:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: 🚢 Checkout Vessel Deployment Repository
+        uses: actions/checkout@v4
+
+      - name: 🔐 Log in to GitHub Container Registry (GHCR)
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 🏗️ Compile and Tag Production Fleet Container Image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository }}:latest
+            ghcr.io/${{ github.repository }}:${{ github.sha }}
+
+      - name: 🛰️ Broadcast GitOps Deployment Manifest Complete
+        run: |
+          echo "🚀 Over-The-Air Deployment Package Successfully Staged for Global Fleet!"
+          echo "📊 Target Image: ghcr.io/${{ github.repository }}:latest"
