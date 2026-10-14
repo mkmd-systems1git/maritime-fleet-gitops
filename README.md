@@ -34,24 +34,20 @@ The physical software deployment ceiling was permanently eliminated. Continuous 
 
 ## 🛠️ ON-SITE FIELD DEPLOYMENT GUIDE
 
-This unbuffered, air-gapped data pipeline is engineered for plug-and-play installation on-site on edge server hardware without requiring an external internet connection.
+This GitOps continuous delivery conveyor belt is configured to push rolling microservice container updates over-the-air to remote data systems natively.
 
 ```bash
-# 1. Clone the master edge-ingestion assets directly onto the hardware node
-git clone https://github.com/mkmd-systems1git/maritime-fleet-gitops && cd maritime-edge-pipeline
+# 1. Clone the master delivery manifest configurations onto your console
+git clone https://github.com && cd maritime-fleet-gitops
 
-# 2. Build the optimized local container runtime layer
-docker build -t edge-pipeline:latest .
-
-# 3. Spin up the background collection thread service with active log files
-docker run -d --name live-pipeline-container --restart unless-stopped edge-pipeline:latest
+# 2. Review the core declarative pipeline workflow parameters
+cat .github/workflows/deploy-pipeline.yml
 ```
 
 ## 🚨 DISASTER RECOVERY & FIELD TROUBLESHOOTING
 
-### Symptom: Data Drop Errors or Unhandled Serial Communication Blocks
-If an underlying sensor payload shifts out of its strict alignment framework, data streaming anomalies will occur.
-*   *Action:* Check system health using: `docker logs live-pipeline-container`. If the data ingestion layer freezes, run a clean state reset:
-```bash
-docker restart live-pipeline-container
-```
+### Symptom: Pipeline Build Failures or Cryptographic Token Mis-matches
+This occurs when the dynamic secrets layer loses authorization alignment with your target container registry interfaces.
+*   *Action:* Manual scripting is not required. The automated orchestration permissions block (`packages: write`) will dynamically establish a self-healing single-use token validation sequence on the next sequential git merge event.
+
+
