@@ -29,3 +29,29 @@ We dismantled this manual update ceiling by architecting a modern GitOps pipelin
 🟢 **The Business Result - (The Commercial ROI)**
 The physical software deployment ceiling was permanently eliminated. Continuous delivery execution time dropped from weeks of technical coordination down to a completely automated **21-second cloud build-and-ship window**, reducing manual rollout errors to absolute zero. By replacing manual on-site port updates with secure, automated over-the-air container distribution pipelines, the maritime enterprise slashes specialized technical travel costs and infrastructure administrative overhead by an estimated **$74,000 USD/year per fleet division** while ensuring the entire global fleet stays fully compliant with international digital security standards.
 
+
+
+
+## 🛠️ ON-SITE FIELD DEPLOYMENT GUIDE
+
+This unbuffered, air-gapped data pipeline is engineered for plug-and-play installation on-site on edge server hardware without requiring an external internet connection.
+
+```bash
+# 1. Clone the master edge-ingestion assets directly onto the hardware node
+git clone https://github.com && cd maritime-edge-pipeline
+
+# 2. Build the optimized local container runtime layer
+docker build -t edge-pipeline:latest .
+
+# 3. Spin up the background collection thread service with active log files
+docker run -d --name live-pipeline-container --restart unless-stopped edge-pipeline:latest
+```
+
+## 🚨 DISASTER RECOVERY & FIELD TROUBLESHOOTING
+
+### Symptom: Data Drop Errors or Unhandled Serial Communication Blocks
+If an underlying sensor payload shifts out of its strict alignment framework, data streaming anomalies will occur.
+*   *Action:* Check system health using: `docker logs live-pipeline-container`. If the data ingestion layer freezes, run a clean state reset:
+```bash
+docker restart live-pipeline-container
+```
