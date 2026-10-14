@@ -38,7 +38,7 @@ This GitOps continuous delivery conveyor belt is configured to push rolling micr
 
 ```bash
 # 1. Clone the master delivery manifest configurations onto your console
-git clone https://github.com && cd maritime-fleet-gitops
+git clone https://github.com/mkmd-systems1git/maritime-fleet-gitops && cd maritime-fleet-gitops
 
 # 2. Review the core declarative pipeline workflow parameters
 cat .github/workflows/deploy-pipeline.yml
