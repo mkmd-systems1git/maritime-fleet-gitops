@@ -38,7 +38,7 @@ This unbuffered, air-gapped data pipeline is engineered for plug-and-play instal
 
 ```bash
 # 1. Clone the master edge-ingestion assets directly onto the hardware node
-git clone https://github.com && cd maritime-edge-pipeline
+git clone https://github.com/mkmd-systems1git/maritime-fleet-gitops && cd maritime-edge-pipeline
 
 # 2. Build the optimized local container runtime layer
 docker build -t edge-pipeline:latest .
